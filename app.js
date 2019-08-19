@@ -6,6 +6,7 @@ $(document).ready(function () {
     var rand = Math.floor((Math.random() * 100) + 1);
     var count = 1;
     var index = 0;
+    var body_t = parseInt($("body").css("height"));
     console.log(rand);
     $(".input").keydown(function (e) {
         if (e.which == 13) {
@@ -57,12 +58,7 @@ $(document).ready(function () {
                                 $("#lista" + index).append("<li>" + "0" + input + "</li>");
                             } else {
                                 $("#lista" + index).append("<li>" + input + "</li>");
-                                var box_t = parseInt($(".box").css("height"));
-                                var body_t = parseInt($("body").css("height"));
-                                console.log(box_t);
                                 $("body").css("height", body_t + 70 + "px");
-                                $(".box").css("height", box_t + 70 + "px");
-                                console.log($(".box").css("height"));
                             }
                             index += 1;
                             count = 1;
@@ -93,6 +89,7 @@ $(document).ready(function () {
     });
     $(".newgame").mousedown(function () {
         guesses = [];
+        $("body").css("height", body_t - 70 * index + "px");
         index = 0;
         count = 1;
         var rand = Math.floor((Math.random() * 100) + 1);
@@ -104,7 +101,7 @@ $(document).ready(function () {
         $(".cold h1").show();
         $(".or").show();
         $(".aviso").css("margin-top", 20 + "px");
-        $(".aviso").text("Neutro");
+        $(".aviso").text("Digite um número de 1 a 100.");
         $("li").remove();
 
     });
