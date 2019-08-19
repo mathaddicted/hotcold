@@ -72,12 +72,14 @@ $(document).ready(function () {
                             }
                         }
                     } else {
-                        alert("Digite um número.");
                         $(".input").val("");
                     }
                 }
             } else {
                 if (input > 100) {
+                    $(".aviso").text("Digite um número de 1 a 100.");
+                    $(".input").val("");
+                } else if (Number.isInteger(input) == false) {
                     $(".aviso").text("Digite um número de 1 a 100.");
                     $(".input").val("");
                 } else {
